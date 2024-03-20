@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Añadir
+{% endblock %}
+
+{% block main %}
+    {% if error %}
+        <div class="alert alert-danger text-centered" role="alert">
+            {{ error }}
+        </div>
+    {% endif %}
+    {% if exito %}
+        <div class="alert alert-success text-centered" role="alert">
+            {{ exito }}
+        </div>
+    {% endif %}
+
+<form class="formulario" method="post">
+    <fieldset>
+        <legend>
+            COMPLETE LOS DETALLES DE LA FACTURA
+        </legend>
+        <div class="contenedor-campos">
+            <div class="campo">
+                <label>Categoria</label>
+                <input required class="input-text" type="text" name="category" placeholder="ej.(Empresa, Proyecto, Locacion, etc.)">
+            </div>
+            
+            <div class="campo">
+                <label>Monto</label>
+                <input required class="input-text" type="number" name="amount" placeholder="Monto de la factura" step="0.01">
+            </div>
+
+            <div class="campo">
+                <label>Fecha de pago</label>
+                <input required class="input-text" type="date" name="date" placeholder="Fecha de la factura">
+            </div>
+
+            <div class="campo">
+                <label>Estado de la factura</label>
+                <select required class="input-text" name="status">
+                    <option value="Seleccione" selected disabled>-</option>
+                    <option value="Pagada">Pagada</option>
+                    <option value="Pendiente">Pendiente</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label>Descripcion</label>
+                <textarea placeholder="Pequeña descripcion de factura. (Máximo 120 caracteres) " class="input-text" name="description" id="" cols="20" rows="3" maxlength="120"></textarea>
+            </div>
+
+        </div>   
+
+        <div class="alinear-derecha flex">
+            <input class="boton w-100" type="submit" value="Añadir">
+        </div>
+    </fieldset>
+</form>
+</section>
+
+{% endblock %}

@@ -1,0 +1,4 @@
+Flask==2.0.1
+Flask-Session==0.4.0
+Werkzeug==2.0.1
+cs50==2.0.1

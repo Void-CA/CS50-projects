@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Lista
+{% endblock %}
+
+{% block main %}
+    <div  class="justify-center">
+        <h2 class="titulo"> Facturas pendientes</h2>
+    </div>
+    <div class="justify-center">
+        {% if pending_invoices %}
+            <table class="table" id="pending_invoices">
+                <tr>
+                    <th>ID</th>
+                    <th>Categoria</th>
+                    <th>Monto</th>
+                    <th>Fecha a pagar</th>
+                    <th>Descripcion</th>
+                </tr>
+                {% for row in pending_invoices %}
+                    <tr>
+                        <td>
+                            {{ row["id"] }}
+                        </td>
+                        <td>
+                            {{ row["category"] }}
+                        </td>
+                        <td>
+                            {{ row["amount"] }}
+                        </td>
+                        <td>
+                            {{ row["date"] }}
+                        </td>
+                        <td class="descripcion-column">
+                            {{ row["description"] }}
+                        </td>
+                    </tr>   
+                {% endfor %}
+            </table>
+        {% else %}
+            <h3 class="italic margin-up-down">No posee facturas pendientes</h3>
+        {% endif %}
+    </div>
+    
+
+    <div class="justify-center">
+        <h2 class="titulo">Facturas pagadas</h2>
+    </div>
+    <div class="justify-center">
+        {% if paid_invoices %}
+            <table class="table" id="paid_invoices">
+                <tr>
+                    <th>ID</th>
+                    <th>Categoria</th>
+                    <th>Monto</th>
+                    <th>Fecha de pago</th>
+                    <th>Descripcion</th>
+                </tr>
+                {% for row in paid_invoices %}
+                    <tr>
+                        <td>
+                            {{ row["id"] }}
+                        </td>
+                        <td>
+                            {{ row["category"] }}
+                        </td>
+                        <td>
+                            {{ row["amount"] }}
+                        </td>
+                        <td>
+                            {{ row["date"] }}
+                        </td>
+                        <td class="descripcion-column">
+                            {{ row["description"] }}
+                        </td>
+                    </tr>   
+                {% endfor %}
+            </table>
+        {% else %}
+            <h3 class="italic margin-up-down">No posee facturas pagadas</h3>
+        {% endif %}
+    </div>
+{% endblock %}

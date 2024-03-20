@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    {% if error %}
+    <div class="alert alert-danger text-centered" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+    <section class="box mx-auto">
+        <h1>Create an user</h1>
+        <form action="/register" method="post" onsubmit="return validarFormulario();">
+            <div class="grid">
+                <div class="mb-3">
+                    <label class="form-label">Username</label>
+                    <input required autocomplete="off" autofocus class="form-control mx-auto center-items" name="username" type="text" placeholder="Username">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input required autocomplete="on" class="form-control mx-auto center-items" name="email" type="email" placeholder="Email">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input required autocomplete="on" class="form-control mx-auto center-items" id="password" name="password" type="password" placeholder="Password ">
+                </div> 
+                <div class="mb-3">
+                    <label class="form-label">Confirm Password</label>
+                    <input required autocomplete="on" class="form-control mx-auto center-items" id="confirmation" name="confirmation" type="password" placeholder="Confirm Password">
+                </div>
+                
+                <button class="btn btn-primary" type="submit">Register</button>
+            </div>
+        </form>
+    
+    </section>
+{% endblock %}

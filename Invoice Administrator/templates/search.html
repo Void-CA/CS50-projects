@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Lista
+{% endblock %}
+
+{% block main %}
+    <section class="buscar-section">
+        <div  class="justify-center">
+            <h2 class="titulo"> Buscar facturas </h2>
+        </div>
+        <div class="form-display">
+            <form id="formulario-busqueda">
+
+                <label for="campo_categoria">ID:</label>
+                <input type="text" id="campo_id" name="campo_id">
+                
+                <label for="campo_categoria">Categoría:</label>
+                <input type="text" id="campo_categoria" name="campo_categoria">
+                
+                <label for="campo_monto_min">Monto Mínimo:</label>
+                <input type="number" id="campo_monto_min" name="campo_monto_min" min="0">
+    
+                <label for="campo_monto_max">Monto Máximo:</label>
+                <input type="number" id="campo_monto_max" name="campo_monto_max" min="0">
+            </form>
+        </div>
+        
+
+        <!-- Mostrar resultados de búsqueda aquí -->
+        <h3 class="vertical-margin">Resultados de busqueda:</h3>
+        <div id="resultados-busqueda" class="resultados-container"></div>
+    </section>
+{% endblock %}
